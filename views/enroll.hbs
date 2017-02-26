@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script type="text/javascript">
+
+    function submitform(){
+      var formData = JSON.stringify($("#myForm").serializeArray());
+
+      $.ajax({
+        type: "POST",
+        url: "/empls",
+        data: formData,
+        success: function(doc){
+          alert("성공적으로 등록되었습니다."+JSON.stringify(doc));
+          location.replace("/empls");
+        },
+        dataType: "json",
+        contentType : "application/json"
+      });
+    }
+
+    </script>
+  </head>
+  <body>
+    {{> header }}
+    <h3>등록화면 입니다.</h3>
+    <form action="/empls" method="post" enctype="multipart/form-data" id="myForm">
+      <p>이름:  <input type="text" name="name" ></p>
+      <p>직위:  <input type="text" name="postion" ></p>
+      <input value="전송" type="button" onclick="submitform()">
+    </form>
+
+    {{> footer}}
+  </body>
+</html>

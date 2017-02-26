@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    {{> header }}
+    <p>hbs 문법을 이용해서 리스트로 출력</p>
+
+    <table>
+    <tr><th>이름</th><th>직위</th><th>파일명</th></tr>
+    {{#empls}}
+        <tr>
+            <td><a href="/empls/{{_id}}">{{name}}</a></td>
+            <td>{{position}}</td>
+            <td>{{fileId}}</td>
+        </tr>
+    {{/empls}}
+    </table>
+      <a href="/enroll">등록</a>
+    {{> footer}}
+  </body>
+</html>

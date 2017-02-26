@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script type="text/javascript">
+
+    function check(){
+      var formData = $("#txtName").val();
+      var rname = $("#rname").val();
+
+      //var sendData =  JSON.stringify({id: formData});
+      alert(formData +"///"+ rname);
+      alert(formData == rname);
+      // $.ajax({
+      //   type: "POST",
+      //   url: "/delete",
+      //   data: sendData,
+      //   success: function(doc){
+      //     alert("성공적으로 삭제되었습니다."+JSON.stringify(doc));
+      //     location.replace("/empls");
+      //   },
+      //   dataType: "json",
+      //   contentType : "application/json"
+      // });
+    }
+
+    </script>
+  </head>
+  <body>
+    {{> header }}
+    <p>테스트</p> <!-- 수정 가능하도록 처리-->
+
+    <img src="http://placehold.it/100" />
+    <p><input type="hidden" id="rname" value="{{name}}"/></p>
+    <p>{{position}}</p>
+    <br>
+    <p><h3>이름?</h3><input type="text" id="txtName"/><br>
+    <input value="확인" type="button" onclick="check()"></p>
+    {{> footer}}
+  </body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script type="text/javascript">
+
+    function submitform(){
+      var formData = $("#idkey").val();
+
+      var sendData =  JSON.stringify({id: formData});
+
+      $.ajax({
+        type: "POST",
+        url: "/delete",
+        data: sendData,
+        success: function(doc){
+          alert("성공적으로 삭제되었습니다."+JSON.stringify(doc));
+          location.replace("/empls");
+        },
+        dataType: "json",
+        contentType : "application/json"
+      });
+    }
+
+    </script>
+  </head>
+  <body>
+    {{> header }}
+    <p>상세정보</p> <!-- 수정 가능하도록 처리-->
+    <table>
+    <tr><th>이름</th><th>직위</th><th>파일명</th></tr>
+        <tr>
+            <td>{{name}}</td>
+            <td>{{position}}</td>
+            <td>{{fileId}}</td>
+            <input type="text" value="{{_id}}" id="idkey">
+        </tr>
+    </table>
+    <input value="삭제" type="button" onclick="submitform()">
+    {{> footer}}
+  </body>
+</html>
