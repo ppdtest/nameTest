@@ -11,7 +11,6 @@
       var rname = $("#rname").val();
 
       //var sendData =  JSON.stringify({id: formData});
-      alert(formData +"///"+ rname);
       alert(formData == rname);
       // $.ajax({
       //   type: "POST",
@@ -24,7 +23,8 @@
       //   dataType: "json",
       //   contentType : "application/json"
       // });
-    }
+    };
+
 
     </script>
   </head>
@@ -32,12 +32,16 @@
     {{> header }}
     <p>테스트</p> <!-- 수정 가능하도록 처리-->
 
-    <img src="http://placehold.it/100" />
-    <p><input type="hidden" id="rname" value="{{name}}"/></p>
+    <image src="../{{fileId}}"/>
+    <p>
+    <input type="hidden" id="rname" value="{{name}}"/>
     <p>{{position}}</p>
-    <br>
-    <p><h3>이름?</h3><input type="text" id="txtName"/><br>
+    <p><h3>이름?</h3><input type="text" id="txtName"/>
     <input value="확인" type="button" onclick="check()"></p>
+    <p>
+    <a href="/test/{{_id}}?flow=previous">이전</a>
+    <a href="/test/{{_id}}?flow=next">다음</a>
+    </p>
     {{> footer}}
   </body>
 </html>

@@ -42,4 +42,4 @@ emplSchema.pre('save', function(next) {
 
 var Empl = mongoose.model('Empl', emplSchema);
 
-module.exports = {Empl};
+module.exports = {Empl , counter};
